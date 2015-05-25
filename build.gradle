@@ -58,7 +58,7 @@ minecraft {
     mappings = "snapshot_20141130"
 }
 
-version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("BUILD_NUMBER") ?: 0}"
+version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("CIRCLE_BUILD_NUM") ?: 0}"
 
 processResources {
     inputs.property "version", project.version
