@@ -4,4 +4,7 @@ machine:
 general:
   artifacts: 
     - build/libs
+test:
+  pre:
+    - gradle build
 
