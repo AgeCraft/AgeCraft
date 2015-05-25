@@ -1,10 +1,6 @@
 machine:
   java:
     version: openjdk7
-dependencies:
-  cache_directories:
-    - .gradle
-    - build/tmp
 general:
   artifacts: 
     - build/libs
