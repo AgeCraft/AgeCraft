@@ -62,12 +62,13 @@ version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("CI
 
 processResources {
     inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
+    inputs.property "mc_version", project.config.minecraft_version
+    inputs.property "forge_version", project.config.forge_version
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
         
-        expand 'version':project.version, 'mcversion':project.config.minecraft_version
+        expand 'version':project.version, 'mc_version':project.config.minecraft_version, 'forge_version':project.config.forge_version
     }
         
     from(sourceSets.main.resources.srcDirs) {
