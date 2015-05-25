@@ -1,12 +1,29 @@
-*.class
+## Gradle
+.gradle
+build
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+## ForgeGradle
+run
 
-# Package Files #
-*.jar
-*.war
-*.ear
+## Eclipse
+eclipse
+.settings
+.metadata
+.classpath
+.project
+bin
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+## IntelliJ
+out
+.idea
+*.iml
+*.ipr
+*.iws
+atlassian-ide-plugin.xml
+
+## Mac
+.DS_Store
+
+## Project
+libs
+
