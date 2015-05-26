@@ -48,7 +48,6 @@ minecraft {
 
     replace "@VERSION@", "${config.mod_version}.${System.getenv("CIRCLE_BUILD_NUM") ?: 0}"
     replace "@MC_VERSION@", config.minecraft_version
-    replace "@FORGE_VERSION", config.forge_version
 
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
@@ -63,12 +62,11 @@ version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("CI
 processResources {
     inputs.property "version", project.version
     inputs.property "mc_version", project.config.minecraft_version
-    inputs.property "forge_version", project.config.forge_version
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
         
-        expand 'version':project.version, 'mc_version':project.config.minecraft_version, 'forge_version':project.config.forge_version
+        expand 'version':project.version, 'mc_version':project.config.minecraft_version
     }
         
     from(sourceSets.main.resources.srcDirs) {

@@ -4,7 +4,7 @@
   "name": "AgeCraft",
   "description": "AgeCraft adds ages and evolution to Minecraft",
   "version": "${version}",
-  "mcversion": "${mcversion}",
+  "mcversion": "${mc_version}",
   "url": "https://github.com/AgeCraft/AgeCraft-2.0",
   "updateUrl": "",
   "authorList": ["DanielHuisman"],
