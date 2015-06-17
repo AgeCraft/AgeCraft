@@ -41,6 +41,7 @@ configFile.withReader {
 dependencies {
     compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.ccl_version}:dev"
     compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
+    compile "net.ilexiconn.llibrary:LLibrary:${config.llibrary_version}-${config.minecraft_version}:dev"
 }
 
 version = config.mod_version
