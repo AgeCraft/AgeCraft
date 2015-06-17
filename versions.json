@@ -1,0 +1,12 @@
+{
+	"newestVersion": "0.1.0",
+	"versions":
+	{
+		"0.1.0":
+		[
+			"Initial release"
+		]
+	},
+	"updateUrl": "http://agecraft.org/",
+	"iconUrl": "http://agecraft.org/images/logo.png"
+}

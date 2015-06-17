@@ -9,4 +9,6 @@ public class ACReference {
 	public static final String DEPENDENCIES = "required-after:Forge@[11.14.1.1334,);required-after:CodeChickenCore@[1.0.5.34,);required-after:llibrary@[0.2.0-1.8,);";
 	public static final String CLIENT_PROXY = "org.agecraft.ACClientProxy";
 	public static final String SERVER_PROXY = "org.agecraft.ACServerProxy";
+	
+	public static final String UPDATE_URL = "https://raw.githubusercontent.com/AgeCraft/AgeCraft/master/versions.json";
 }

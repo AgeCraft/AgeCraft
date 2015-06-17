@@ -1,9 +1,9 @@
-[![Trarvis-CI Build Status](https://travis-ci.org/AgeCraft/AgeCraft-2.0.svg?branch=develop)](https://travis-ci.org/AgeCraft/AgeCraft-2.0) [![CircleCI Build Status](https://circleci.com/gh/AgeCraft/AgeCraft-2.0/tree/develop.png?style=shield)](https://circleci.com/gh/AgeCraft/AgeCraft-2.0)
+[![Trarvis-CI Build Status](https://travis-ci.org/AgeCraft/AgeCraft.svg?branch=master)](https://travis-ci.org/AgeCraft/AgeCraft) [![CircleCI Build Status](https://circleci.com/gh/AgeCraft/AgeCraft/tree/master.png?style=shield)](https://circleci.com/gh/AgeCraft/AgeCraft)
 
-# AgeCraft-2.0
+# AgeCraft
 
-Reboot of AgeCraft, a Minecraft mod that adds ages and evolution
+AgeCraft adds ages and evolution to Minecraft
 
 ## Links
-* [GitHub Repository](https://github.com/AgeCraft/AgeCraft-2.0)
+* [GitHub Repository](https://github.com/AgeCraft/AgeCraft)
 * [Subreddit](http://reddit.com/r/AgeCraft)

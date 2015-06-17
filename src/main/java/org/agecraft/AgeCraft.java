@@ -1,5 +1,6 @@
 package org.agecraft;
 
+import net.ilexiconn.llibrary.common.update.UpdateHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -24,7 +25,11 @@ public class AgeCraft {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		
+		try {
+			UpdateHelper.registerUpdateChecker(instance, ACReference.UPDATE_URL);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@EventHandler
