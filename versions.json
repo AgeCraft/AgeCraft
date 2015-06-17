@@ -8,5 +8,5 @@
 		]
 	},
 	"updateUrl": "https://github.com/AgeCraft/AgeCraft",
-	"iconUrl": "https://raw.githubusercontent.com/AgeCraft/AgeCraft/master/src/resources/assets/agecraft/textures/logo/logo.png"
+	"iconUrl": "https://raw.githubusercontent.com/AgeCraft/AgeCraft/master/src/main/resources/assets/agecraft/textures/logo/logo.png"
 }
