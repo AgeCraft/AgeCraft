@@ -7,6 +7,6 @@
 			"Initial release"
 		]
 	},
-	"updateUrl": "http://agecraft.org/",
-	"iconUrl": "http://agecraft.org/images/logo.png"
+	"updateUrl": "https://github.com/AgeCraft/AgeCraft",
+	"iconUrl": "https://raw.githubusercontent.com/AgeCraft/AgeCraft/master/src/resources/assets/agecraft/textures/logo/logo.png"
 }

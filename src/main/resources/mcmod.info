@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["DanielHuisman", "iLexiconn", "RoryGee"],
   "credits": "AgeCraft Team",
-  "logoFile": "/assets/agecraft/textures/logo/logo.png",
+  "logoFile": "/assets/agecraft/textures/logo/logo_mod.png",
   "screenshots": [],
   "dependencies": [
   	"CodeChickenCore",
