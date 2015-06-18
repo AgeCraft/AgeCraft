@@ -24,6 +24,10 @@ repositories {
 		name = "ilexiconn"
 		url = "http://maven.ilexiconn.net/"
 	}
+	maven {
+		name = "agecraft"
+		url = "http://maven.agecraft.org/"
+	}
 }
 
 apply plugin: 'java'
@@ -42,6 +46,7 @@ dependencies {
     compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.ccl_version}:dev"
     compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
     compile "net.ilexiconn.llibrary:LLibrary:${config.llibrary_version}-${config.minecraft_version}:dev"
+    compile "org.agecraft.extendedmetadata:ExtendedMetadata:${config.minecraft_version}-${config.em_version}:dev"
 }
 
 version = config.mod_version
