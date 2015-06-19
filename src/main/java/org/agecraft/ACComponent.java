@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import org.agecraft.core.AgeCraftCore;
+
 public abstract class ACComponent {
 
 	public static ArrayList<ACComponent> components = new ArrayList<ACComponent>();
+	
+	public static AgeCraftCore core = new AgeCraftCore();
 	
 	public String name;
 	

@@ -1,5 +1,6 @@
 package org.agecraft;
 
+import net.ilexiconn.llibrary.common.config.ConfigHelper;
 import net.ilexiconn.llibrary.common.update.UpdateHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -25,6 +26,7 @@ public class AgeCraft {
 
 	public static Logger log = LogManager.getLogger(ACReference.MOD_ID);
 	
+	public static ACConfigHandler configHandler;
 	public static ACEventHandler eventHandler;
 	@SideOnly(Side.CLIENT)
 	public static ACEventHandlerClient eventHandlerClient;
@@ -36,6 +38,9 @@ public class AgeCraft {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		configHandler = new ACConfigHandler();
+		ConfigHelper.registerConfigHandler(ACReference.MOD_ID, event.getSuggestedConfigurationFile(), configHandler);
 
 		proxy.preInit();
 	}
