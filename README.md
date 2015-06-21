@@ -1,4 +1,4 @@
-[CircleCI Build Status](https://circleci.com/gh/AgeCraft/AgeCraft/tree/master.png?style=shield)](https://circleci.com/gh/AgeCraft/AgeCraft)
+ [![CircleCI Build Status](https://circleci.com/gh/AgeCraft/AgeCraft/tree/master.png?style=shield)](https://circleci.com/gh/AgeCraft/AgeCraft)
 
 # AgeCraft
 
