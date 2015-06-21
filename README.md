@@ -1,4 +1,4 @@
-[![Trarvis-CI Build Status](https://travis-ci.org/AgeCraft/AgeCraft.svg?branch=master)](https://travis-ci.org/AgeCraft/AgeCraft) [![CircleCI Build Status](https://circleci.com/gh/AgeCraft/AgeCraft/tree/master.png?style=shield)](https://circleci.com/gh/AgeCraft/AgeCraft)
+[CircleCI Build Status](https://circleci.com/gh/AgeCraft/AgeCraft/tree/master.png?style=shield)](https://circleci.com/gh/AgeCraft/AgeCraft)
 
 # AgeCraft
 
@@ -23,4 +23,5 @@ For these IDE's there are formatter configurations avaiblable, if your IDE is no
 
 ## Links
 * [GitHub Repository](https://github.com/AgeCraft/AgeCraft)
+* [Nightly Builds](https://circleci.com/gh/AgeCraft/AgeCraft)
 * [Subreddit](http://reddit.com/r/AgeCraft)
