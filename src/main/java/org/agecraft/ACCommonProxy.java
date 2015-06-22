@@ -1,14 +1,16 @@
 package org.agecraft;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ACCommonProxy {
+public class ACCommonProxy implements IGuiHandler {
 
 	public void preInit() {
 		FMLCommonHandler.instance().bus().register(new ACEventHandler());
@@ -24,9 +26,9 @@ public class ACCommonProxy {
 					if(obj instanceof Block) {
 						Block block = (Block) obj;
 						block.setUnlocalizedName(componentName + field.getName());
-						Annotation annotation = field.getAnnotation(ItemBlockClass.class);
+						ItemBlockClass annotation = field.getAnnotation(ItemBlockClass.class);
 						if(annotation != null) {
-							GameRegistry.registerBlock(block, ((ItemBlockClass) annotation).value(), componentName + field.getName());
+							GameRegistry.registerBlock(block, annotation.value(), componentName + field.getName());
 						} else {
 							GameRegistry.registerBlock(block, componentName + field.getName());
 						}
@@ -52,5 +54,21 @@ public class ACCommonProxy {
 		for(ACComponent component : ACComponent.components) {
 			component.postInit();
 		}
+	}
+
+	@Override
+	public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+		return null;
+	}
+	
+	@Override
+	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+		for(ACComponent component : ACComponent.components) {
+			Object obj = component.getGuiElement(id, player, world, x, y, z);
+			if(obj != null) {
+				return obj;
+			}
+		}
+		return null;
 	}
 }
