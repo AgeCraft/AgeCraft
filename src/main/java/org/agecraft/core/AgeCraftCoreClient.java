@@ -10,28 +10,28 @@ import org.agecraft.ACComponentClient;
 
 @SideOnly(Side.CLIENT)
 public class AgeCraftCoreClient extends ACComponentClient {
-	
-	public AgeCraftCoreClient(ACComponent component) {
-		super(component);
-	}
 
-	@Override
-	public void preInit() {
-		
-	}
+    public AgeCraftCoreClient(ACComponent component) {
+        super(component);
+    }
 
-	@Override
-	public void init() {
-		
-	}
+    @Override
+    public void preInit() {
 
-	@Override
-	public void postInit() {
-		
-	}
-	
-	@Override
-	public Object getGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-		return null;
-	}
+    }
+
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void postInit() {
+
+    }
+
+    @Override
+    public Object getGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+        return null;
+    }
 }

@@ -18,49 +18,49 @@ import org.agecraft.metals.Metals;
 import com.ibm.icu.text.MessageFormat;
 
 public class BlockMetalBlock extends BlockMetadata {
-	
-	public BlockMetalBlock() {
-		super(Material.iron, Metals.registry.size());
-		setStepSound(Block.soundTypeMetal);
-		setCreativeTab(ACCreativeTabs.metals);
-	}
-	
-	@Override
-	public BlockState createBlockState() {
-		return new BlockState(this, Metals.property);
-	}
-	
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return Metals.registry.getID((String) state.getValue(Metals.property));
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(Metals.property, Metals.registry.getName(meta));
-	}
-	
-	@Override
-	public String getLocalizedName(int meta) {
-		return MessageFormat.format(getLocalizedName(), super.getLocalizedName(meta));
-	}
-	
-	@Override
-	public String getUnlocalizedName() {
-		return "agecraft.metals.blocks.block";
-	}
-	
-	@Override
-	public String getUnlocalizedName(int meta) {
-		return "agecraft.metals." + Metals.registry.getName(meta);
-	}
-	
-	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for(Metal metal : Metals.registry) {
-			if(metal != null) {
-				list.add(new ItemStack(item, 1, metal.id));
-			}
-		}
-	}
+
+    public BlockMetalBlock() {
+        super(Material.iron, Metals.registry.size());
+        setStepSound(Block.soundTypeMetal);
+        setCreativeTab(ACCreativeTabs.metals);
+    }
+
+    @Override
+    public BlockState createBlockState() {
+        return new BlockState(this, Metals.property);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return Metals.registry.getID((String) state.getValue(Metals.property));
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        return getDefaultState().withProperty(Metals.property, Metals.registry.getName(meta));
+    }
+
+    @Override
+    public String getLocalizedName(int meta) {
+        return MessageFormat.format(getLocalizedName(), super.getLocalizedName(meta));
+    }
+
+    @Override
+    public String getUnlocalizedName() {
+        return "agecraft.metals.blocks.block";
+    }
+
+    @Override
+    public String getUnlocalizedName(int meta) {
+        return "agecraft.metals." + Metals.registry.getName(meta);
+    }
+
+    @Override
+    public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+        for (Metal metal : Metals.registry) {
+            if (metal != null) {
+                list.add(new ItemStack(item, 1, metal.id));
+            }
+        }
+    }
 }

@@ -18,40 +18,40 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = ACReference.MOD_ID, name = ACReference.NAME, version = ACReference.VERSION, acceptedMinecraftVersions = ACReference.MC_VERSION, dependencies = ACReference.DEPENDENCIES)
 public class AgeCraft {
 
-	@Instance(ACReference.MOD_ID)
-	public static AgeCraft instance;
+    @Instance(ACReference.MOD_ID)
+    public static AgeCraft instance;
 
-	@SidedProxy(clientSide = ACReference.CLIENT_PROXY, serverSide = ACReference.SERVER_PROXY)
-	public static ACCommonProxy proxy;
+    @SidedProxy(clientSide = ACReference.CLIENT_PROXY, serverSide = ACReference.SERVER_PROXY)
+    public static ACCommonProxy proxy;
 
-	public static Logger log = LogManager.getLogger(ACReference.MOD_ID);
-	
-	public static ACConfigHandler configHandler;
-	public static ACEventHandler eventHandler;
-	@SideOnly(Side.CLIENT)
-	public static ACEventHandlerClient eventHandlerClient;
+    public static Logger log = LogManager.getLogger(ACReference.MOD_ID);
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		try {
-			UpdateHelper.registerUpdateChecker(instance, ACReference.UPDATE_URL);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		configHandler = new ACConfigHandler();
-		ConfigHelper.registerConfigHandler(ACReference.MOD_ID, event.getSuggestedConfigurationFile(), configHandler);
+    public static ACConfigHandler configHandler;
+    public static ACEventHandler eventHandler;
+    @SideOnly(Side.CLIENT)
+    public static ACEventHandlerClient eventHandlerClient;
 
-		proxy.preInit();
-	}
-	
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		proxy.init();
-	}
-	
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit();
-	}
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        try {
+            UpdateHelper.registerUpdateChecker(instance, ACReference.UPDATE_URL);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        configHandler = new ACConfigHandler();
+        ConfigHelper.registerConfigHandler(ACReference.MOD_ID, event.getSuggestedConfigurationFile(), configHandler);
+
+        proxy.preInit();
+    }
+
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+        proxy.init();
+    }
+
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        proxy.postInit();
+    }
 }

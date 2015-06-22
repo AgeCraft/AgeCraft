@@ -11,30 +11,30 @@ import org.agecraft.AgeClient;
 @SideOnly(Side.CLIENT)
 public class PrehistoryAgeClient extends AgeClient {
 
-	public static PrehistoryAgeClient instance;
-	
-	public PrehistoryAgeClient(Age age) {
-		super(age);
-		instance = this;
-	}
+    public static PrehistoryAgeClient instance;
 
-	@Override
-	public void preInit() {
-		
-	}
+    public PrehistoryAgeClient(Age age) {
+        super(age);
+        instance = this;
+    }
 
-	@Override
-	public void init() {
-		
-	}
+    @Override
+    public void preInit() {
 
-	@Override
-	public void postInit() {
-		
-	}
-	
-	@Override
-	public Object getGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
-		return null;
-	}
+    }
+
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void postInit() {
+
+    }
+
+    @Override
+    public Object getGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+        return null;
+    }
 }

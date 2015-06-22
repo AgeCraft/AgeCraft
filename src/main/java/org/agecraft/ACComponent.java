@@ -12,27 +12,27 @@ import org.agecraft.metals.Metals;
 
 public abstract class ACComponent {
 
-	public static ArrayList<ACComponent> components = new ArrayList<ACComponent>();
-	
-	public static AgeCraftCore core = new AgeCraftCore();
-	public static Metals metals = new Metals();
-	
-	public String name;
-	
-	public ACComponent(String name) {
-		this.name = name;
-		
-		components.add(this);
-	}
-	
-	public abstract void preInit();
+    public static ArrayList<ACComponent> components = new ArrayList<ACComponent>();
 
-	public abstract void init();
-	
-	public abstract void postInit();
-	
-	public abstract Object getGuiElement(int id, EntityPlayer player, World world, int x, int y, int z);
-	
-	@SideOnly(Side.CLIENT)
-	public abstract ACComponentClient getComponentClient();
+    public static AgeCraftCore core = new AgeCraftCore();
+    public static Metals metals = new Metals();
+
+    public String name;
+
+    public ACComponent(String name) {
+        this.name = name;
+
+        components.add(this);
+    }
+
+    public abstract void preInit();
+
+    public abstract void init();
+
+    public abstract void postInit();
+
+    public abstract Object getGuiElement(int id, EntityPlayer player, World world, int x, int y, int z);
+
+    @SideOnly(Side.CLIENT)
+    public abstract ACComponentClient getComponentClient();
 }

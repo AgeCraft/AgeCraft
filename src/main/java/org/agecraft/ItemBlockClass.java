@@ -11,5 +11,5 @@ import net.minecraft.item.ItemBlock;
 @Target(ElementType.FIELD)
 public @interface ItemBlockClass {
 
-	public Class<? extends ItemBlock> value();
+    public Class<? extends ItemBlock> value();
 }
