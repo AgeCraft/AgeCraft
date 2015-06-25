@@ -9,9 +9,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,9 +24,6 @@ public class AgeCraft {
     public static Logger log = LogManager.getLogger(ACReference.MOD_ID);
 
     public static ACConfigHandler configHandler;
-    public static ACEventHandler eventHandler;
-    @SideOnly(Side.CLIENT)
-    public static ACEventHandlerClient eventHandlerClient;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -39,9 +33,7 @@ public class AgeCraft {
             e.printStackTrace();
         }
 
-        configHandler = new ACConfigHandler();
-        ConfigHelper.registerConfigHandler(ACReference.MOD_ID, event.getSuggestedConfigurationFile(), configHandler);
-
+        ConfigHelper.registerConfigHandler(ACReference.MOD_ID, event.getSuggestedConfigurationFile(), configHandler = new ACConfigHandler());
         proxy.preInit();
     }
 

@@ -1,19 +1,23 @@
 [
-{
-  "modid": "AgeCraft",
-  "name": "AgeCraft",
-  "description": "AgeCraft adds ages and evolution to Minecraft",
-  "version": "${version}",
-  "mcversion": "${mc_version}",
-  "url": "https://github.com/AgeCraft/AgeCraft",
-  "updateUrl": "",
-  "authorList": ["DanielHuisman", "iLexiconn", "RoryGee"],
-  "credits": "AgeCraft Team",
-  "logoFile": "/assets/agecraft/textures/logo/logo_mod.png",
-  "screenshots": [],
-  "dependencies": [
-  	"CodeChickenCore",
-  	"LLibrary"
-  ]
-}
+  {
+    "modid": "AgeCraft",
+    "name": "AgeCraft",
+    "description": "AgeCraft adds ages and evolution to Minecraft",
+    "version": "${version}",
+    "mcversion": "${mc_version}",
+    "url": "https://github.com/AgeCraft/AgeCraft",
+    "updateUrl": "",
+    "authorList": [
+      "DanielHuisman",
+      "iLexiconn",
+      "RoryGee"
+    ],
+    "credits": "AgeCraft Team",
+    "logoFile": "/assets/agecraft/textures/logo/logo_mod.png",
+    "screenshots": [],
+    "dependencies": [
+      "CodeChickenCore",
+      "LLibrary"
+    ]
+  }
 ]

@@ -13,8 +13,7 @@ public class ACClientProxy extends ACCommonProxy {
     public void preInit() {
         super.preInit();
 
-        AgeCraft.eventHandlerClient = new ACEventHandlerClient();
-        FMLCommonHandler.instance().bus().register(AgeCraft.eventHandlerClient);
+        FMLCommonHandler.instance().bus().register(new ACEventHandlerClient());
 
         for (ACComponent component : ACComponent.components) {
             if (component.getComponentClient() != null) {
