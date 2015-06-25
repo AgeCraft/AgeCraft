@@ -50,22 +50,17 @@ dependencies {
 }
 
 version = config.mod_version
-group= config.mod_group
+group = config.mod_group
 archivesBaseName = config.mod_name
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
-    runDir = "run"
+    runDir = "minecraft"
 
     replace "@VERSION@", "${config.mod_version}.${System.getenv("CIRCLE_BUILD_NUM") ?: 0}"
     replace "@MC_VERSION@", config.minecraft_version
 
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not allways work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20141130"
+    mappings = config.minecraft_mappings
 }
 
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("CIRCLE_BUILD_NUM") ?: 0}"
@@ -76,7 +71,6 @@ processResources {
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        
         expand 'version':project.version, 'mc_version':project.config.minecraft_version
     }
         
