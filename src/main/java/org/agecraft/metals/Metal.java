@@ -2,7 +2,7 @@ package org.agecraft.metals;
 
 import net.minecraft.item.ItemStack;
 
-import org.agecraft.registry.RegistryObject;
+import org.agecraft.core.registry.RegistryObject;
 
 public class Metal extends RegistryObject {
 

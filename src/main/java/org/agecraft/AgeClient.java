@@ -3,12 +3,12 @@ package org.agecraft;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import org.agecraft.prehistory.PrehistoryAgeClient;
+import org.agecraft.age.prehistory.AgePrehistoryClient;
 
 @SideOnly(Side.CLIENT)
 public abstract class AgeClient extends ACComponentClient {
 
-    public static PrehistoryAgeClient prehistory = new PrehistoryAgeClient(Age.prehistory);
+    public static AgePrehistoryClient prehistory = new AgePrehistoryClient(Age.prehistory);
     public static AgeClient agriculture;
     public static AgeClient ancientEgypt;
     public static AgeClient ancientChina;

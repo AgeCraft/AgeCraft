@@ -1,4 +1,4 @@
-package org.agecraft.registry;
+package org.agecraft.core.registry;
 
 import java.util.Collection;
 

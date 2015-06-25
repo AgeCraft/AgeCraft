@@ -11,8 +11,8 @@ import org.agecraft.ACComponentClient;
 import org.agecraft.ItemBlockClass;
 import org.agecraft.core.items.ItemBlockMetadata;
 import org.agecraft.metals.blocks.BlockMetalBlock;
-import org.agecraft.registry.PropertyRegistry;
-import org.agecraft.registry.Registry;
+import org.agecraft.core.registry.PropertyRegistry;
+import org.agecraft.core.registry.Registry;
 
 public class Metals extends ACComponent {
 

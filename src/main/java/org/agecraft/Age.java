@@ -1,12 +1,12 @@
 package org.agecraft;
 
-import org.agecraft.prehistory.PrehistoryAge;
+import org.agecraft.age.prehistory.AgePrehistory;
 
 public abstract class Age extends ACComponent {
 
     public static Age[] ages = new Age[16];
 
-    public static PrehistoryAge prehistory = new PrehistoryAge(0);
+    public static AgePrehistory prehistory = new AgePrehistory(0);
     public static Age agriculture;
     public static Age ancientEgypt;
     public static Age ancientChina;

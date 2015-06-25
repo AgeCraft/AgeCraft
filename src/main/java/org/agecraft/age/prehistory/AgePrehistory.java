@@ -1,21 +1,16 @@
-package org.agecraft.prehistory;
+package org.agecraft.age.prehistory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
+import org.agecraft.ACComponentClient;
 import org.agecraft.Age;
 import org.agecraft.AgeClient;
 
-@SideOnly(Side.CLIENT)
-public class PrehistoryAgeClient extends AgeClient {
+public class AgePrehistory extends Age {
 
-    public static PrehistoryAgeClient instance;
-
-    public PrehistoryAgeClient(Age age) {
-        super(age);
-        instance = this;
+    public AgePrehistory(int id) {
+        super(id, "prehistory");
     }
 
     @Override
@@ -31,6 +26,11 @@ public class PrehistoryAgeClient extends AgeClient {
     @Override
     public void postInit() {
 
+    }
+
+    @Override
+    public ACComponentClient getComponentClient() {
+        return AgeClient.prehistory;
     }
 
     @Override
