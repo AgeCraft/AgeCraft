@@ -38,12 +38,12 @@ public class Metal extends RegistryObject {
     public int oreGenMinY;
     public int oreGenMaxY;
 
-    public Metal(int id, String name, OreType type, float hardness, float resistane, int harvestLevel, float blockHardness, float blockResistane, ItemStack drop, int dropMin, int dropMax, boolean fortune, boolean hasOre, boolean hasIngot, boolean hasBlock, boolean hasDoor, boolean hasDust, int redstonePower, int fireSpreadSpeed, int flammability, int metalColor, int oreGenSize, int oreGenPerChunk, int oreGenMinY, int oreGenMaxY) {
+    public Metal(int id, String name, OreType type, float hardness, float resistance, int harvestLevel, float blockHardness, float blockResistane, ItemStack drop, int dropMin, int dropMax, boolean fortune, boolean hasOre, boolean hasIngot, boolean hasBlock, boolean hasDoor, boolean hasDust, int redstonePower, int fireSpreadSpeed, int flammability, int metalColor, int oreGenSize, int oreGenPerChunk, int oreGenMinY, int oreGenMaxY) {
         super(id, name);
         this.type = type;
 
         this.hardness = hardness;
-        this.resistance = resistane;
+        this.resistance = resistance;
         this.harvestLevel = harvestLevel;
         this.blockHardness = blockHardness;
         this.blockResistance = blockResistane * 3.0F;

@@ -18,7 +18,7 @@ public class ACCommonProxy implements IGuiHandler {
         for (ACComponent component : ACComponent.components) {
             component.preInit();
 
-            String componentName = "AC_" + component.name + "_";
+            String componentName = component.name + "_";
 
             for (Field field : component.getClass().getFields()) {
                 try {

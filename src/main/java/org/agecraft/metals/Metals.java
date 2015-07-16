@@ -9,10 +9,10 @@ import net.minecraft.world.World;
 import org.agecraft.ACComponent;
 import org.agecraft.ACComponentClient;
 import org.agecraft.ItemBlockClass;
-import org.agecraft.core.items.ItemBlockMetadata;
-import org.agecraft.metals.blocks.BlockMetalBlock;
+import org.agecraft.core.items.ItemBlockLocalizedMetadata;
 import org.agecraft.core.registry.PropertyRegistry;
 import org.agecraft.core.registry.Registry;
+import org.agecraft.metals.blocks.BlockMetalBlock;
 
 public class Metals extends ACComponent {
 
@@ -21,7 +21,7 @@ public class Metals extends ACComponent {
 
     public static Block ore;
 
-    @ItemBlockClass(ItemBlockMetadata.class)
+    @ItemBlockClass(ItemBlockLocalizedMetadata.class)
     public static Block block;
 
     public static Block blockPillar;
