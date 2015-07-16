@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.IGuiHandler;
@@ -28,20 +29,32 @@ public class ACCommonProxy implements IGuiHandler {
                         block.setUnlocalizedName(componentName + field.getName());
                         ItemBlockClass annotation = field.getAnnotation(ItemBlockClass.class);
                         if (annotation != null) {
-                            GameRegistry.registerBlock(block, annotation.value(), componentName + field.getName());
+                            registerBlock(block, annotation.value(), componentName + field.getName());
                         } else {
-                            GameRegistry.registerBlock(block, componentName + field.getName());
+                            registerBlock(block, null, componentName + field.getName());
                         }
                     } else if (obj instanceof Item) {
                         Item item = (Item) obj;
                         item.setUnlocalizedName(componentName + field.getName());
-                        GameRegistry.registerItem(item, componentName + field.getName());
+                        registerItem(item, componentName + field.getName());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
+    }
+
+    public void registerBlock(Block block, Class<? extends ItemBlock> itemClass, String name) {
+        if (itemClass == null) {
+            GameRegistry.registerBlock(block, name);
+        } else {
+            GameRegistry.registerBlock(block, itemClass, name);
+        }
+    }
+
+    public void registerItem(Item item, String name) {
+        GameRegistry.registerItem(item, name);
     }
 
     public void init() {

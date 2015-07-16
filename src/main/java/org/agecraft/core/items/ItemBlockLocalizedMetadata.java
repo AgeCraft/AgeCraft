@@ -8,17 +8,17 @@ import org.agecraft.extendedmetadata.ItemBlockMetadata;
 
 public class ItemBlockLocalizedMetadata extends ItemBlockMetadata {
 
-	public ItemBlockLocalizedMetadata(Block block) {
-		super(block);
-	}
+    public ItemBlockLocalizedMetadata(Block block) {
+        super(block);
+    }
 
-	@Override
-	public String getItemStackDisplayName(ItemStack stack) {
-		return LanguageRegistry.instance().getStringLocalization(getUnlocalizedNameInefficiently(stack));
-	}
+    @Override
+    public String getItemStackDisplayName(ItemStack stack) {
+        return LanguageRegistry.instance().getStringLocalization(getUnlocalizedNameInefficiently(stack));
+    }
 
-	@Override
-	public String getUnlocalizedNameInefficiently(ItemStack stack) {
-		return getUnlocalizedName(stack);
-	}
+    @Override
+    public String getUnlocalizedNameInefficiently(ItemStack stack) {
+        return getUnlocalizedName(stack);
+    }
 }

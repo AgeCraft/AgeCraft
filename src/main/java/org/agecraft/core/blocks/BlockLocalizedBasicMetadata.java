@@ -7,17 +7,17 @@ import org.agecraft.extendedmetadata.BlockBasicMetadata;
 
 public class BlockLocalizedBasicMetadata extends BlockBasicMetadata {
 
-	public BlockLocalizedBasicMetadata(Material material) {
-		super(material);
-	}
+    public BlockLocalizedBasicMetadata(Material material) {
+        super(material);
+    }
 
-	@Override
-	public String getLocalizedName() {
-		return LanguageRegistry.instance().getStringLocalization(getUnlocalizedName());
-	}
+    @Override
+    public String getLocalizedName() {
+        return LanguageRegistry.instance().getStringLocalization(getUnlocalizedName());
+    }
 
-	@Override
-	public String getLocalizedName(int meta) {
-		return LanguageRegistry.instance().getStringLocalization(getUnlocalizedName(meta));
-	}
+    @Override
+    public String getLocalizedName(int meta) {
+        return LanguageRegistry.instance().getStringLocalization(getUnlocalizedName(meta));
+    }
 }

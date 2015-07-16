@@ -1,6 +1,6 @@
 {
 	"defaults": {
-		"model": "agecraft:cube_all"
+		"model": "minecraft:cube_all"
 	},
 	"variants": {
 		"metal={0},type={1}": {

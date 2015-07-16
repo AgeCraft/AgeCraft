@@ -7,17 +7,17 @@ import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
 public class ItemBlockLocalized extends ItemBlock {
 
-	public ItemBlockLocalized(Block block) {
-		super(block);
-	}
+    public ItemBlockLocalized(Block block) {
+        super(block);
+    }
 
-	@Override
-	public String getItemStackDisplayName(ItemStack stack) {
-		return LanguageRegistry.instance().getStringLocalization(getUnlocalizedNameInefficiently(stack));
-	}
+    @Override
+    public String getItemStackDisplayName(ItemStack stack) {
+        return LanguageRegistry.instance().getStringLocalization(getUnlocalizedNameInefficiently(stack));
+    }
 
-	@Override
-	public String getUnlocalizedNameInefficiently(ItemStack stack) {
-		return getUnlocalizedName(stack);
-	}
+    @Override
+    public String getUnlocalizedNameInefficiently(ItemStack stack) {
+        return getUnlocalizedName(stack);
+    }
 }

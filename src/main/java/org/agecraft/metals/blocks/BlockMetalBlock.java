@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -26,101 +27,106 @@ import com.ibm.icu.text.MessageFormat;
 
 public class BlockMetalBlock extends BlockLocalizedMetadata {
 
-	public static enum EnumMetalBlockType {
-		BLOCK, BRICKS, SMALL_BRICKS, BLOCK_CIRCLE
-	}
+    public static enum EnumMetalBlockType implements IStringSerializable {
+        NORMAL, BRICKS, SMALL_BRICKS, CIRCLE;
 
-	public static PropertyEnum type = PropertyEnum.create("type", EnumMetalBlockType.class, EnumMetalBlockType.values());
+        @Override
+        public String getName() {
+            return toString().toLowerCase();
+        }
+    }
 
-	public BlockMetalBlock() {
-		super(Material.iron, Metals.registry.size());
-		setStepSound(Block.soundTypeMetal);
-		setCreativeTab(ACCreativeTabs.metals);
-	}
+    public static PropertyEnum type = PropertyEnum.create("type", EnumMetalBlockType.class, EnumMetalBlockType.values());
 
-	@Override
-	public BlockState createBlockState() {
-		return new BlockState(this, type, Metals.property);
-	}
+    public BlockMetalBlock() {
+        super(Material.iron, Metals.registry.size());
+        setStepSound(Block.soundTypeMetal);
+        setCreativeTab(ACCreativeTabs.metals);
+    }
 
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return Metals.registry.getID((String) state.getValue(Metals.property)) << 2 | (Integer) state.getValue(type);
-	}
+    @Override
+    public BlockState createBlockState() {
+        return new BlockState(this, type, Metals.property);
+    }
 
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(Metals.property, Metals.registry.getName((meta >> 2) & 63)).withProperty(type, meta & 3);
-	}
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return Metals.registry.getID((String) state.getValue(Metals.property)) << 2 | ((EnumMetalBlockType) state.getValue(type)).ordinal();
+    }
 
-	@Override
-	public String getLocalizedName(int meta) {
-		return MessageFormat.format(getLocalizedName(), super.getLocalizedName(meta));
-	}
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        return getDefaultState().withProperty(Metals.property, Metals.registry.getName((meta >> 2) & 63)).withProperty(type, EnumMetalBlockType.values()[meta & 3]);
+    }
 
-	@Override
-	public String getUnlocalizedName() {
-		return "agecraft.metals.blocks.block";
-	}
+    @Override
+    public String getLocalizedName(int meta) {
+        return MessageFormat.format(getLocalizedName(), super.getLocalizedName(meta));
+    }
 
-	@Override
-	public String getUnlocalizedName(int meta) {
-		return "agecraft.metals." + Metals.registry.getName(meta);
-	}
+    @Override
+    public String getUnlocalizedName() {
+        return "agecraft.metals.blocks.block";
+    }
 
-	@Override
-	public boolean canProvidePower() {
-		return true;
-	}
+    @Override
+    public String getUnlocalizedName(int meta) {
+        return "agecraft.metals." + Metals.registry.getName(meta);
+    }
 
-	@Override
-	public boolean isNormalCube(IBlockAccess blockAccess, BlockPos pos) {
-		return getMaterial().isOpaque() && isFullCube();
-	}
+    @Override
+    public boolean canProvidePower() {
+        return true;
+    }
 
-	@Override
-	public int isProvidingWeakPower(IBlockAccess blockAccess, BlockPos pos, IBlockState state, EnumFacing side) {
-		return Metals.registry.get((Integer) state.getValue(Metals.property)).redstonePower;
-	}
+    @Override
+    public boolean isNormalCube(IBlockAccess blockAccess, BlockPos pos) {
+        return getMaterial().isOpaque() && isFullCube();
+    }
 
-	@Override
-	public int getFireSpreadSpeed(IBlockAccess blockAccess, BlockPos pos, EnumFacing face) {
-		return Metals.registry.get((Integer) blockAccess.getBlockState(pos).getValue(Metals.property)).fireSpreadSpeed;
-	}
+    @Override
+    public int isProvidingWeakPower(IBlockAccess blockAccess, BlockPos pos, IBlockState state, EnumFacing side) {
+        return Metals.registry.get((Integer) state.getValue(Metals.property)).redstonePower;
+    }
 
-	@Override
-	public int getFlammability(IBlockAccess blockAccess, BlockPos pos, EnumFacing face) {
-		return Metals.registry.get((Integer) blockAccess.getBlockState(pos).getValue(Metals.property)).flammability;
-	}
+    @Override
+    public int getFireSpreadSpeed(IBlockAccess blockAccess, BlockPos pos, EnumFacing face) {
+        return Metals.registry.get((Integer) blockAccess.getBlockState(pos).getValue(Metals.property)).fireSpreadSpeed;
+    }
 
-	@Override
-	public float getBlockHardness(World world, BlockPos pos) {
-		return Metals.registry.get((Integer) world.getBlockState(pos).getValue(Metals.property)).blockHardness;
-	}
+    @Override
+    public int getFlammability(IBlockAccess blockAccess, BlockPos pos, EnumFacing face) {
+        return Metals.registry.get((Integer) blockAccess.getBlockState(pos).getValue(Metals.property)).flammability;
+    }
 
-	@Override
-	public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
-		return Metals.registry.get((Integer) world.getBlockState(pos).getValue(Metals.property)).blockResistance / 5.0F;
-	}
+    @Override
+    public float getBlockHardness(World world, BlockPos pos) {
+        return Metals.registry.get((Integer) world.getBlockState(pos).getValue(Metals.property)).blockHardness;
+    }
 
-	@Override
-	public String getHarvestTool(IBlockState state) {
-		return "pickaxe";
-	}
+    @Override
+    public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
+        return Metals.registry.get((Integer) world.getBlockState(pos).getValue(Metals.property)).blockResistance / 5.0F;
+    }
 
-	@Override
-	public int getHarvestLevel(IBlockState state) {
-		return Metals.registry.get((Integer) state.getValue(Metals.property)).harvestLevel;
-	}
+    @Override
+    public String getHarvestTool(IBlockState state) {
+        return "pickaxe";
+    }
 
-	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for(Metal metal : Metals.registry) {
-			if(metal != null && metal.hasBlock) {
-				for(int j = 0; j < 4; j++) {
-					list.add(new ItemStack(item, 1, metal.id << 2 | j));
-				}
-			}
-		}
-	}
+    @Override
+    public int getHarvestLevel(IBlockState state) {
+        return Metals.registry.get((Integer) state.getValue(Metals.property)).harvestLevel;
+    }
+
+    @Override
+    public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+        for (Metal metal : Metals.registry) {
+            if (metal != null && metal.hasBlock) {
+                for (int j = 0; j < 4; j++) {
+                    list.add(new ItemStack(item, 1, metal.id << 2 | j));
+                }
+            }
+        }
+    }
 }

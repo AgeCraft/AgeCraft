@@ -69,20 +69,20 @@ public class Metals extends ACComponent {
         // register gems
         registry.register(new Metal(32, "coal", OreType.GEM, 3.0F, 5.0F, 0, 5.0F, 10.0F, new ItemStack(gem, 1, 32), 1, 1, true, true, true, true, false, true, 0, 5, 5, 0x0D0D0D, 16, 15, 0, 128));
         registry.register(new Metal(33, "amethyst", OreType.GEM, 3.0F, 5.0F, 9, 5.0F, 10.0F, new ItemStack(gem, 1, 33), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0xA575C7, 8, 2, 0, 26));
-        registry.register(new Metal(34, "berylRed", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 34), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0xF76B6B, 5, 1, 0, 16));
-        registry.register(new Metal(35, "berylYellow", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 35), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0xFDD24E, 6, 2, 10, 64));
-        registry.register(new Metal(36, "berylBlue", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 36), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x6A8BFD, 6, 2, 10, 32));
-        registry.register(new Metal(37, "berylGreen", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 37), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x54E36A, 6, 1, 0, 16));
+        registry.register(new Metal(34, "beryl_red", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 34), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0xF76B6B, 5, 1, 0, 16));
+        registry.register(new Metal(35, "beryl_yellow", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 35), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0xFDD24E, 6, 2, 10, 64));
+        registry.register(new Metal(36, "beryl_blue", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 36), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x6A8BFD, 6, 2, 10, 32));
+        registry.register(new Metal(37, "beryl_green", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 37), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x54E36A, 6, 1, 0, 16));
         registry.register(new Metal(38, "diamond", OreType.GEM, 3.0F, 5.0F, 10, 5.0F, 10.0F, new ItemStack(gem, 1, 38), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x87E5E1, 8, 1, 0, 16));
         registry.register(new Metal(39, "emerald", OreType.GEM, 3.0F, 5.0F, 9, 5.0F, 10.0F, new ItemStack(gem, 1, 39), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x48E073, 6, 1, 0, 16));
         registry.register(new Metal(40, "jade", OreType.GEM, 3.0F, 5.0F, 8, 5.0F, 10.0F, new ItemStack(gem, 1, 40), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x07E1AA, 6, 1, 0, 16));
-        registry.register(new Metal(41, "lapisLazuli", OreType.GEM, 3.0F, 5.0F, 7, 5.0F, 10.0F, new ItemStack(gem, 1, 41), 4, 8, true, true, true, true, false, true, 0, 0, 0, 0x1542CC, 6, 2, 0, 28));
+        registry.register(new Metal(41, "lapis_lazuli", OreType.GEM, 3.0F, 5.0F, 7, 5.0F, 10.0F, new ItemStack(gem, 1, 41), 4, 8, true, true, true, true, false, true, 0, 0, 0, 0x1542CC, 6, 2, 0, 28));
         registry.register(new Metal(42, "onyx", OreType.GEM, 3.0F, 5.0F, 10, 5.0F, 10.0F, new ItemStack(gem, 1, 42), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x2D2D2D, 10, 3, 0, 16));
         registry.register(new Metal(43, "opal", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 43), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x7E90ED, 8, 2, 0, 32));
         registry.register(new Metal(44, "quartz", OreType.GEM, 3.0F, 5.0F, 10, 5.0F, 10.0F, new ItemStack(gem, 1, 44), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0xF0EEE8, 8, 3, 0, 32));
         registry.register(new Metal(45, "ruby", OreType.GEM, 3.0F, 5.0F, 6, 5.0F, 10.0F, new ItemStack(gem, 1, 45), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0xD8484, 6, 1, 0, 16));
         registry.register(new Metal(46, "sapphire", OreType.GEM, 3.0F, 5.0F, 6, 5.0F, 10.0F, new ItemStack(gem, 1, 46), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x4860BC, 6, 1, 0, 16));
-        registry.register(new Metal(47, "tigerEye", OreType.GEM, 3.0F, 5.0F, 8, 5.0F, 10.0F, new ItemStack(gem, 1, 47), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x892604, 8, 3, 20, 96));
+        registry.register(new Metal(47, "tiger_eye", OreType.GEM, 3.0F, 5.0F, 8, 5.0F, 10.0F, new ItemStack(gem, 1, 47), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x892604, 8, 3, 20, 96));
         registry.register(new Metal(48, "topaz", OreType.GEM, 3.0F, 5.0F, 6, 5.0F, 10.0F, new ItemStack(gem, 1, 48), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0xD8CF48, 8, 2, 40, 128));
         registry.register(new Metal(49, "turquoise", OreType.GEM, 3.0F, 5.0F, 4, 5.0F, 10.0F, new ItemStack(gem, 1, 49), 1, 1, true, true, true, true, false, true, 0, 0, 0, 0x6AD6CE, 8, 1, 0, 32));
         registry.register(new Metal(50, "redstone", OreType.GEM, 3.0F, 5.0F, 5, 5.0F, 10.0F, new ItemStack(dust, 1, 50), 4, 5, true, true, false, true, false, true, 15, 0, 0, 0xE3260C, 8, 8, 0, 26));

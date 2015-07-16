@@ -6,13 +6,13 @@ import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
 public class ItemLocalized extends Item {
 
-	@Override
-	public String getItemStackDisplayName(ItemStack stack) {
-		return LanguageRegistry.instance().getStringLocalization(getUnlocalizedName(stack));
-	}
+    @Override
+    public String getItemStackDisplayName(ItemStack stack) {
+        return LanguageRegistry.instance().getStringLocalization(getUnlocalizedName(stack));
+    }
 
-	@Override
-	public String getUnlocalizedNameInefficiently(ItemStack stack) {
-		return getUnlocalizedName(stack);
-	}
+    @Override
+    public String getUnlocalizedNameInefficiently(ItemStack stack) {
+        return getUnlocalizedName(stack);
+    }
 }

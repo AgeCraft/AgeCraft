@@ -6,12 +6,12 @@ import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
 public class BlockLocalized extends Block {
 
-	public BlockLocalized(Material materialIn) {
-		super(materialIn);
-	}
+    public BlockLocalized(Material materialIn) {
+        super(materialIn);
+    }
 
-	@Override
-	public String getLocalizedName() {
-		return LanguageRegistry.instance().getStringLocalization(getUnlocalizedName());
-	}
+    @Override
+    public String getLocalizedName() {
+        return LanguageRegistry.instance().getStringLocalization(getUnlocalizedName());
+    }
 }
