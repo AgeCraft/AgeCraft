@@ -116,8 +116,10 @@ public class BlockMetalBlock extends BlockLocalizedMetadata {
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for(Metal metal : Metals.registry) {
-			if(metal != null) {
-				list.add(new ItemStack(item, 1, metal.id));
+			if(metal != null && metal.hasBlock) {
+				for(int j = 0; j < 4; j++) {
+					list.add(new ItemStack(item, 1, metal.id << 2 | j));
+				}
 			}
 		}
 	}
