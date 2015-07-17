@@ -71,7 +71,7 @@ public class BlockMetalBlock extends BlockLocalizedMetadata {
 
     @Override
     public String getUnlocalizedName(int meta) {
-        return "agecraft.metals." + Metals.registry.getName(meta);
+        return "agecraft.metals." + Metals.registry.getName((meta >> 2) & 63);
     }
 
     @Override

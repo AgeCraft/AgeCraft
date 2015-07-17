@@ -1,12 +1,15 @@
 {
 	"defaults": {
-		"model": "minecraft:cube_all"
+		"model": "agecraft:cube_all"
 	},
 	"variants": {
 		"metal={0},type={1}": {
 			"textures": {
 				"all": "agecraft:blocks/metals/block/block_{1}_{0}"
 			}
+		},
+		"inventory": {
+			"transform": "forge:default-block"
 		}
 	}
 }

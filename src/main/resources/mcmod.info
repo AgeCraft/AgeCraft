@@ -17,7 +17,8 @@
     "screenshots": [],
     "dependencies": [
       "CodeChickenCore",
-      "LLibrary"
+      "LLibrary",
+      "ExtendedMetadata"
     ]
   }
 ]
