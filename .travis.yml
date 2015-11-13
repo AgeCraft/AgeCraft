@@ -10,8 +10,8 @@ cache:
     - $HOME/.gradle/wrapper/
 before_install:
   - chmod +x gradlew
-install: gradle setupCIWorkspace -S
-script: gradle build
+install: ./gradlew setupCIWorkspace -S
+script: ./gradlew build
 
 env:
   global:
