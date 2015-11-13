@@ -64,26 +64,20 @@ processResources {
     }
 }
 
-// task sourceJar(type: Jar) {
-//     from sourceSets.main.allSource
-//     classifier = 'sources'
-// }
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from javadoc.destinationDir
+    classifier = 'javadoc'
+}
 
-// task javadocJar(type: Jar, dependsOn: javadoc) {
-//     from javadoc.destinationDir
-//     classifier = 'javadoc'
-// }
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'dev'
+}
 
-// task deobfJar(type: Jar) {
-//     from sourceSets.main.output
-//     classifier = 'dev'
-// }
+build.dependsOn sourceJar, javadocJar, deobfJar
 
-// build.dependsOn sourceJar, javadocJar, deobfJar
-
-// artifacts {
-//     archives sourceJar
-//     archives javadocJar
-//     archives deobfJar
-// }
+artifacts {
+    archives javadocJar
+    archives deobfJar
+}
 
