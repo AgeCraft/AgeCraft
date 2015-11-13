@@ -11,7 +11,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
     }
 }
 
@@ -31,8 +31,8 @@ repositories {
 }
 
 apply plugin: 'java'
-apply plugin: 'forge'
 apply plugin: 'maven'
+apply plugin: 'net.minecraftforge.gradle.forge'
 
 ext.configFile = file "build.properties"
 
@@ -45,7 +45,7 @@ configFile.withReader {
 dependencies {
     compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.ccl_version}:dev"
     compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
-    compile "net.ilexiconn.llibrary:LLibrary:${config.llibrary_version}-${config.minecraft_version}:dev"
+    compile "net.ilexiconn:llibrary:${config.llibrary_version}-${config.minecraft_version}:dev"
     compile "org.agecraft.extendedmetadata:ExtendedMetadata:${config.minecraft_version}-${config.em_version}:dev"
 }
 
@@ -79,26 +79,26 @@ processResources {
     }
 }
 
-task sourceJar(type: Jar) {
-    from sourceSets.main.allSource
-    classifier = 'sources'
-}
+// task sourceJar(type: Jar) {
+//     from sourceSets.main.allSource
+//     classifier = 'sources'
+// }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    from javadoc.destinationDir
-    classifier = 'javadoc'
-}
+// task javadocJar(type: Jar, dependsOn: javadoc) {
+//     from javadoc.destinationDir
+//     classifier = 'javadoc'
+// }
 
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    classifier = 'dev'
-}
+// task deobfJar(type: Jar) {
+//     from sourceSets.main.output
+//     classifier = 'dev'
+// }
 
-build.dependsOn sourceJar, javadocJar, deobfJar
+// build.dependsOn sourceJar, javadocJar, deobfJar
 
-artifacts {
-    archives sourceJar
-    archives javadocJar
-    archives deobfJar
-}
+// artifacts {
+//     archives sourceJar
+//     archives javadocJar
+//     archives deobfJar
+// }
 
