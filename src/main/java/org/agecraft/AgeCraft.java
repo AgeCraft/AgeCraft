@@ -1,17 +1,17 @@
 package org.agecraft;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.ilexiconn.llibrary.common.config.ConfigHelper;
-import net.ilexiconn.llibrary.common.update.UpdateHelper;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Mod(modid = ACReference.MOD_ID, name = ACReference.NAME, version = ACReference.VERSION, acceptedMinecraftVersions = ACReference.MC_VERSION, dependencies = ACReference.DEPENDENCIES)
 public class AgeCraft {
@@ -28,13 +28,10 @@ public class AgeCraft {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        try {
-            UpdateHelper.registerUpdateChecker(instance, ACReference.UPDATE_URL);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        FMLInterModComms.sendMessage("llibrary", "update-checker", ACReference.UPDATE_URL);
 
         ConfigHelper.registerConfigHandler(ACReference.MOD_ID, event.getSuggestedConfigurationFile(), configHandler = new ACConfigHandler());
+        
         proxy.preInit();
     }
 

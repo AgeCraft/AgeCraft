@@ -30,6 +30,7 @@ public class ACClientProxy extends ACCommonProxy {
     public void registerBlock(Block block, Class<? extends ItemBlock> itemClass, String name) {
         super.registerBlock(block, itemClass, name);
         EMModelLoader.registerBlock(block);
+        EMModelLoader.registerBlockItemModels(block);
     }
 
     @Override

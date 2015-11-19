@@ -1,5 +1,5 @@
 {
-	"parent": "agecraft:cube",
+	"parent": "agecraft:block/cube",
 	"textures": {
 		"particle": "#all",
 		"down": "#all",
