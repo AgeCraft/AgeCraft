@@ -13,6 +13,7 @@ eclipse
 .classpath
 .project
 bin
+*.launch
 
 ## IntelliJ
 out

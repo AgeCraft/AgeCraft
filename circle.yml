@@ -4,7 +4,16 @@ machine:
 general:
   artifacts: 
     - build/libs
+dependencies:
+  pre:
+    - chmod +x gradlew
+  post:
+    - ./gradlew setupCIWorkspace
+  cache_directories:
+    - ".gradle"
+    - "build"
 test:
   pre:
-    - gradle build
-
+    - ./gradlew build
+  override:
+    - ./gradlew test
