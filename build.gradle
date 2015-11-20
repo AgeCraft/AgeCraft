@@ -30,6 +30,8 @@ dependencies {
     compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
     compile "net.ilexiconn:llibrary:${config.llibrary_version}-${config.minecraft_version}:dev"
     compile "org.agecraft.extendedmetadata:ExtendedMetadata:${config.minecraft_version}-${config.em_version}:dev"
+    include "net.ilexiconn:llibrary-wrapper:${config.minecraft_version}"
+    configurations.compile.extendsFrom(configurations.include)
 }
 
 version = config.mod_version
@@ -46,6 +48,10 @@ minecraft {
     mappings = config.minecraft_mappings
 }
 
+configurations {
+    include
+}
+
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("CIRCLE_BUILD_NUM") ?: (System.getenv("BUILD_NUMBER") ?: 0)}"
 
 processResources {
@@ -60,6 +66,10 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+jar {
+    from configurations.include.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
