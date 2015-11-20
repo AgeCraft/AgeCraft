@@ -25,6 +25,10 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
+configurations {
+    include
+}
+
 dependencies {
     compile "codechicken:CodeChickenLib:${config.minecraft_version}-${config.ccl_version}:dev"
     compile "codechicken:CodeChickenCore:${config.minecraft_version}-${config.ccc_version}:dev"
@@ -48,10 +52,6 @@ minecraft {
     mappings = config.minecraft_mappings
 }
 
-configurations {
-    include
-}
-
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv("CIRCLE_BUILD_NUM") ?: (System.getenv("BUILD_NUMBER") ?: 0)}"
 
 processResources {
@@ -70,6 +70,9 @@ processResources {
 
 jar {
     from configurations.include.collect { it.isDirectory() ? it : zipTree(it) }
+    manifest {
+        attributes "FMLCorePlugin": "net.ilexiconn.llibrary.LLibraryWrapper"
+    }
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
