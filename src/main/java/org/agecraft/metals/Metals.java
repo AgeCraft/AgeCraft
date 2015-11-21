@@ -17,7 +17,7 @@ import org.agecraft.metals.blocks.BlockMetalBlock;
 public class Metals extends ACComponent {
 
     public static Registry<Metal> registry;
-    public static PropertyRegistry property;
+    public static PropertyRegistry<Metal> property;
 
     public static Block ore;
 

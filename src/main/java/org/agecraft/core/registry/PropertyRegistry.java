@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableSet;
 
 public class PropertyRegistry<T extends RegistryObject> extends PropertyHelper {
 
-    private ImmutableSet allowedValues;
+    private ImmutableSet<String> allowedValues;
     private Registry<T> registry;
 
     public PropertyRegistry(String name, Registry<T> registry) {
@@ -18,20 +18,21 @@ public class PropertyRegistry<T extends RegistryObject> extends PropertyHelper {
     }
 
     @Override
-    public Collection getAllowedValues() {
+    public Collection<String> getAllowedValues() {
         return allowedValues;
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public String getName(Comparable value) {
         return (String) value;
     }
 
-    public int getID(Comparable value) {
+    public int getID(Comparable<?> value) {
         return registry.get(getName(value)).id;
     }
 
-    public T get(Comparable value) {
+    public T get(Comparable<?> value) {
         return registry.get(getName(value));
     }
 }

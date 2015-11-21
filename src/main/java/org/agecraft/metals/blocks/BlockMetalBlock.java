@@ -119,7 +119,8 @@ public class BlockMetalBlock extends BlockLocalizedMetadata {
         return Metals.registry.get((Integer) state.getValue(Metals.property)).harvestLevel;
     }
 
-    @Override
+    @SuppressWarnings({"rawtypes", "unchecked"})
+	@Override
     public void getSubBlocks(Item item, CreativeTabs tab, List list) {
         for (Metal metal : Metals.registry) {
             if (metal != null && metal.hasBlock) {
