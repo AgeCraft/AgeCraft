@@ -7,6 +7,8 @@ general:
 dependencies:
   pre:
     - chmod +x gradlew
+  override:
+    - ./gradlew dependencies
   post:
     - ./gradlew setupCIWorkspace
   cache_directories:
@@ -17,3 +19,8 @@ test:
     - ./gradlew build
   override:
     - ./gradlew test
+deployment:
+  release:
+    tag: /v[0-9]+(\.[0-9]+)*/
+    commands:
+      - ./gradlew curseforge

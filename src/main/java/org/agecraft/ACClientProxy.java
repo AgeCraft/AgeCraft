@@ -1,14 +1,14 @@
 package org.agecraft;
 
+import org.agecraft.extendedmetadata.client.EMModelLoader;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import org.agecraft.extendedmetadata.client.EMModelLoader;
 
 @SideOnly(Side.CLIENT)
 public class ACClientProxy extends ACCommonProxy {
@@ -17,7 +17,7 @@ public class ACClientProxy extends ACCommonProxy {
     public void preInit() {
         super.preInit();
 
-        FMLCommonHandler.instance().bus().register(new ACEventHandlerClient());
+        MinecraftForge.EVENT_BUS.register(new ACEventHandlerClient());
 
         for (ACComponent component : ACComponent.components) {
             if (component.getComponentClient() != null) {

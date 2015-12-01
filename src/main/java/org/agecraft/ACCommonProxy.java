@@ -7,14 +7,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ACCommonProxy implements IGuiHandler {
 
     public void preInit() {
-        FMLCommonHandler.instance().bus().register(new ACEventHandler());
+        MinecraftForge.EVENT_BUS.register(new ACEventHandler());
 
         for (ACComponent component : ACComponent.components) {
             component.preInit();
