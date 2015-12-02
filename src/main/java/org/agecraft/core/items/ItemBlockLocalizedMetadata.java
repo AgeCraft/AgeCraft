@@ -1,10 +1,9 @@
 package org.agecraft.core.items;
 
+import org.agecraft.extendedmetadata.ItemBlockMetadata;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.LanguageRegistry;
-
-import org.agecraft.extendedmetadata.ItemBlockMetadata;
 
 public class ItemBlockLocalizedMetadata extends ItemBlockMetadata {
 
@@ -14,7 +13,7 @@ public class ItemBlockLocalizedMetadata extends ItemBlockMetadata {
 
     @Override
     public String getItemStackDisplayName(ItemStack stack) {
-        return LanguageRegistry.instance().getStringLocalization(getUnlocalizedNameInefficiently(stack));
+        return getBlock().getLocalizedName(stack.getItemDamage());
     }
 
     @Override

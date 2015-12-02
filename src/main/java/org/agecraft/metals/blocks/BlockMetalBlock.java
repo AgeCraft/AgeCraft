@@ -2,6 +2,13 @@ package org.agecraft.metals.blocks;
 
 import java.util.List;
 
+import org.agecraft.ACCreativeTabs;
+import org.agecraft.core.blocks.BlockLocalizedMetadata;
+import org.agecraft.metals.Metal;
+import org.agecraft.metals.Metals;
+
+import com.ibm.icu.text.MessageFormat;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -17,13 +24,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import org.agecraft.ACCreativeTabs;
-import org.agecraft.core.blocks.BlockLocalizedMetadata;
-import org.agecraft.metals.Metal;
-import org.agecraft.metals.Metals;
-
-import com.ibm.icu.text.MessageFormat;
+import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
 public class BlockMetalBlock extends BlockLocalizedMetadata {
 
@@ -36,7 +37,7 @@ public class BlockMetalBlock extends BlockLocalizedMetadata {
         }
     }
 
-    public static PropertyEnum type = PropertyEnum.create("type", EnumMetalBlockType.class, EnumMetalBlockType.values());
+    public static PropertyEnum<EnumMetalBlockType> type = PropertyEnum.create("type", EnumMetalBlockType.class, EnumMetalBlockType.values());
 
     public BlockMetalBlock() {
         super(Material.iron, Metals.registry.size());
@@ -61,7 +62,7 @@ public class BlockMetalBlock extends BlockLocalizedMetadata {
 
     @Override
     public String getLocalizedName(int meta) {
-        return MessageFormat.format(getLocalizedName(), super.getLocalizedName(meta));
+        return MessageFormat.format(LanguageRegistry.instance().getStringLocalization(getUnlocalizedName() + "." + EnumMetalBlockType.values()[meta & 3].getName()), super.getLocalizedName(meta));
     }
 
     @Override
@@ -76,37 +77,52 @@ public class BlockMetalBlock extends BlockLocalizedMetadata {
 
     @Override
     public boolean canProvidePower() {
-        return true;
+        return false;
     }
+    
+//    @Override
+//    public boolean isNormalCube() {
+//        return getMaterial().isOpaque() && isFullCube();
+//    }
+//
+//    @Override
+//    public boolean isNormalCube(IBlockAccess blockAccess, BlockPos pos) {
+//        return getMaterial().isOpaque() && isFullCube() && Metals.registry.get(blockAccess.getBlockState(pos).getValue(Metals.property)).redstonePower == 0;
+//    }
+//    
+//    @Override
+//    public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
+//        return true;
+//    }
+//    
+//    @Override
+//    public boolean shouldCheckWeakPower(IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+//        return Metals.registry.get(blockAccess.getBlockState(pos).getValue(Metals.property)).redstonePower != 0;
+//    }
 
-    @Override
-    public boolean isNormalCube(IBlockAccess blockAccess, BlockPos pos) {
-        return getMaterial().isOpaque() && isFullCube();
-    }
-
-    @Override
-    public int isProvidingWeakPower(IBlockAccess blockAccess, BlockPos pos, IBlockState state, EnumFacing side) {
-        return Metals.registry.get((Integer) state.getValue(Metals.property)).redstonePower;
-    }
+//    @Override
+//    public int isProvidingWeakPower(IBlockAccess blockAccess, BlockPos pos, IBlockState state, EnumFacing side) {
+//        return Metals.registry.get(state.getValue(Metals.property)).redstonePower;
+//    }
 
     @Override
     public int getFireSpreadSpeed(IBlockAccess blockAccess, BlockPos pos, EnumFacing face) {
-        return Metals.registry.get((Integer) blockAccess.getBlockState(pos).getValue(Metals.property)).fireSpreadSpeed;
+        return Metals.registry.get(blockAccess.getBlockState(pos).getValue(Metals.property)).fireSpreadSpeed;
     }
 
     @Override
     public int getFlammability(IBlockAccess blockAccess, BlockPos pos, EnumFacing face) {
-        return Metals.registry.get((Integer) blockAccess.getBlockState(pos).getValue(Metals.property)).flammability;
+        return Metals.registry.get(blockAccess.getBlockState(pos).getValue(Metals.property)).flammability;
     }
 
     @Override
     public float getBlockHardness(World world, BlockPos pos) {
-        return Metals.registry.get((Integer) world.getBlockState(pos).getValue(Metals.property)).blockHardness;
+        return Metals.registry.get(world.getBlockState(pos).getValue(Metals.property)).blockHardness;
     }
 
     @Override
     public float getExplosionResistance(World world, BlockPos pos, Entity exploder, Explosion explosion) {
-        return Metals.registry.get((Integer) world.getBlockState(pos).getValue(Metals.property)).blockResistance / 5.0F;
+        return Metals.registry.get(world.getBlockState(pos).getValue(Metals.property)).blockResistance / 5.0F;
     }
 
     @Override
@@ -116,12 +132,11 @@ public class BlockMetalBlock extends BlockLocalizedMetadata {
 
     @Override
     public int getHarvestLevel(IBlockState state) {
-        return Metals.registry.get((Integer) state.getValue(Metals.property)).harvestLevel;
+        return Metals.registry.get(state.getValue(Metals.property)).harvestLevel;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
 	@Override
-    public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
         for (Metal metal : Metals.registry) {
             if (metal != null && metal.hasBlock) {
                 for (int j = 0; j < 4; j++) {

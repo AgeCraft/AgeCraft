@@ -2,11 +2,11 @@ package org.agecraft.core.registry;
 
 import java.util.Collection;
 
-import net.minecraft.block.properties.PropertyHelper;
-
 import com.google.common.collect.ImmutableSet;
 
-public class PropertyRegistry<T extends RegistryObject> extends PropertyHelper {
+import net.minecraft.block.properties.PropertyHelper;
+
+public class PropertyRegistry<T extends RegistryObject> extends PropertyHelper<String> {
 
     private ImmutableSet<String> allowedValues;
     private Registry<T> registry;
@@ -22,17 +22,16 @@ public class PropertyRegistry<T extends RegistryObject> extends PropertyHelper {
         return allowedValues;
     }
 
-    @SuppressWarnings("rawtypes")
 	@Override
-    public String getName(Comparable value) {
+    public String getName(String value) {
         return (String) value;
     }
 
-    public int getID(Comparable<?> value) {
+    public int getID(String value) {
         return registry.get(getName(value)).id;
     }
 
-    public T get(Comparable<?> value) {
+    public T get(String value) {
         return registry.get(getName(value));
     }
 }
