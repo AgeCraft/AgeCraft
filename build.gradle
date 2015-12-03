@@ -55,6 +55,9 @@ dependencies {
     // configurations.compile.extendsFrom(configurations.include)
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 version = config.mod_version
 group = config.mod_group
 archivesBaseName = config.mod_name

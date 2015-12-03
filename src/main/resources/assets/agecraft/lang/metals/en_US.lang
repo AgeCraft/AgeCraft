@@ -43,3 +43,5 @@ agecraft.metals.blocks.block.normal={0} Block
 agecraft.metals.blocks.block.bricks={0} Bricks
 agecraft.metals.blocks.block.small_bricks={0} Small Bricks
 agecraft.metals.blocks.block.circle={0} Circle Block
+agecraft.metals.blocks.fence={0} Fence
+agecraft.metals.blocks.fenceGate={0} Fence Gate

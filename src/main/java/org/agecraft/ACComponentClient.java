@@ -1,16 +1,18 @@
 package org.agecraft;
 
+import org.agecraft.core.AgeCraftCoreClient;
+import org.agecraft.metals.MetalsClient;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import org.agecraft.core.AgeCraftCoreClient;
-
 @SideOnly(Side.CLIENT)
 public abstract class ACComponentClient {
 
     public static AgeCraftCoreClient core = new AgeCraftCoreClient(ACComponent.core);
+    public static MetalsClient metals = new MetalsClient(ACComponent.metals);
 
     public ACComponentClient(ACComponent component) {
 

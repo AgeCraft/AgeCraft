@@ -1,11 +1,5 @@
 package org.agecraft.metals;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-
 import org.agecraft.ACComponent;
 import org.agecraft.ACComponentClient;
 import org.agecraft.ItemBlockClass;
@@ -13,6 +7,16 @@ import org.agecraft.core.items.ItemBlockLocalizedMetadata;
 import org.agecraft.core.registry.PropertyRegistry;
 import org.agecraft.core.registry.Registry;
 import org.agecraft.metals.blocks.BlockMetalBlock;
+import org.agecraft.metals.blocks.BlockMetalFence;
+import org.agecraft.metals.blocks.BlockMetalFenceGate;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Metals extends ACComponent {
 
@@ -25,7 +29,11 @@ public class Metals extends ACComponent {
     public static Block block;
 
     public static Block blockPillar;
+ 
+    @ItemBlockClass(ItemBlockLocalizedMetadata.class)
     public static Block fence;
+    
+    @ItemBlockClass(ItemBlockLocalizedMetadata.class)
     public static Block fenceGate;
     public static Block door;
     public static Block trapdoor;
@@ -95,6 +103,8 @@ public class Metals extends ACComponent {
 
         // initialize blocks
         block = new BlockMetalBlock();
+        fence = new BlockMetalFence();
+        fenceGate = new BlockMetalFenceGate();
     }
 
     @Override
@@ -113,7 +123,8 @@ public class Metals extends ACComponent {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public ACComponentClient getComponentClient() {
-        return null;
+        return ACComponentClient.metals;
     }
 }

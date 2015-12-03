@@ -1,6 +1,11 @@
 package org.agecraft.core.registry;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.agecraft.AgeCraft;
 
@@ -60,6 +65,7 @@ public class Registry<T extends RegistryObject> implements Iterable<T> {
         nameToObject.put(value.name, value);
     }
 
+    @SuppressWarnings("unchecked")
     public void register(T... values) {
         for (int i = 0; i < values.length; i++) {
             register(values[i]);

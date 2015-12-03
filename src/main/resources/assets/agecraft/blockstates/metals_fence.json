@@ -1,0 +1,70 @@
+{
+	"defaults": {
+		"model": "agecraft:fence_post",
+		"uvlock": true,
+		"transform": "forge:default-block"
+	},
+	"variants": {
+		"north": {
+			"true": {
+				"submodel": {
+					"north": {
+						"model": "agecraft:fence_connect"	
+					}
+				}
+			},
+			"false": {}
+		},
+		"south": {
+			"true": {
+				"submodel": {
+					"south": {
+						"model": "agecraft:fence_connect",
+						"y": 180
+					}
+				}
+			},
+			"false": {}
+		},
+		"east": {
+			"true": {
+				"submodel": {
+					"east": {
+						"model": "agecraft:fence_connect",
+						"y": 90
+					}
+				}
+			},
+			"false": {}
+		},
+		"west": {
+			"true": {
+				"submodel": {
+					"west": {
+						"model": "agecraft:fence_connect",
+						"y": 270
+					}
+				}
+			},
+			"false": {}
+		},
+		"metal={0}": {
+			"textures": {
+				"texture": "agecraft:blocks/metals/block/block_normal_{0}"
+			}
+		}
+	},
+	"customVariants": {
+		"inventory": {
+			"submodel": {
+				"north": {
+					"model": "agecraft:fence_connect"
+				},
+				"south": {
+					"model": "agecraft:fence_connect",
+					"y": 180
+				}
+			}
+		}
+	}
+}
