@@ -160,14 +160,14 @@ public class BlockMetalFence extends BlockMetalBlock {
     
     @Override
     public String getUnlocalizedName(int meta) {
-        return "agecraft.metals." + Metals.registry.getName(meta >> 4);
+        return "agecraft.metals." + Metals.registry.getName(meta);
     }
 
     @Override
     public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
         for (Metal metal : Metals.registry) {
             if (metal != null && metal.hasDoor) {
-                list.add(new ItemStack(item, 1, metal.id << 4));
+                list.add(new ItemStack(item, 1, metal.id));
             }
         }
     }

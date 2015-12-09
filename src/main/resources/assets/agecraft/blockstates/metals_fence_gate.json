@@ -27,7 +27,7 @@
 		},
 		"metal={0}": {
 			"textures": {
-				"texture": "agecraft:blocks/metals/block/block_normal_{0}"
+				"all": "agecraft:blocks/metals/block/block_normal_{0}"
 			}
 		}
 	}
